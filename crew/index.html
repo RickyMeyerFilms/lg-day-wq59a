@@ -1,0 +1,177 @@
+<!doctype html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#6B2E3E">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<title>L&amp;G — Ricky + Rachel</title>
+<style>
+:root{--a:#6B2E3E;--bg:#EFEDE6;--card:#FBFAF6;--ink:#20211D;--soft:#63645C;--line:#DCD9CF;--tint:#F3E7EA}
+@media(prefers-color-scheme:dark){:root{--bg:#121210;--card:#1B1B18;--ink:#EDEBE4;--soft:#9A988F;--line:#2E2E29;--a:#C98598;--tint:#2A1F23}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--ink);
+ font:16px/1.5 -apple-system,system-ui,sans-serif;padding:0 0 4rem}
+img.hero{display:block;width:100%;height:auto}
+header{padding:1.1rem 1.1rem .9rem;border-bottom:1px solid var(--line)}
+h1{font:600 1.5rem/1.15 -apple-system,system-ui,sans-serif;margin:0}
+.sub{color:var(--soft);font-size:.85rem;margin-top:.25rem}
+.bar{height:5px;background:var(--line);border-radius:3px;margin-top:.9rem;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--a);transition:width .25s}
+.tabs{display:flex;gap:.5rem;padding:.8rem 1.1rem;position:sticky;top:0;background:var(--bg);z-index:5;border-bottom:1px solid var(--line)}
+.tabs button{flex:1;font:600 .9rem/1 -apple-system,system-ui,sans-serif;padding:.7rem;border:1px solid var(--line);
+ background:var(--card);color:var(--soft);border-radius:11px}
+.tabs button[aria-selected=true]{background:var(--a);color:#fff;border-color:var(--a)}
+main{padding:1rem .9rem}
+h2{font:400 1.5rem/1.2 "Iowan Old Style",Charter,Georgia,serif;letter-spacing:0;
+ color:var(--ink);margin:2.1rem .2rem .5rem;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+h2:first-child{margin-top:.4rem}
+.row{display:flex;gap:.7rem;align-items:flex-start;background:var(--card);border:1px solid var(--line);
+ border-radius:13px;padding:.8rem .85rem;margin-bottom:.45rem}
+.row.n{background:transparent;border-style:dashed}
+.row.done{opacity:.42}
+.row.done .tx{text-decoration:line-through}
+.bx{flex:0 0 22px;height:22px;margin-top:1px;border:2px solid var(--line);border-radius:6px;
+ display:grid;place-items:center;font-size:13px;color:#fff}
+.row.done .bx{background:var(--a);border-color:var(--a)}
+.tm{flex:0 0 auto;font-variant-numeric:tabular-nums;font-weight:700;font-size:.9rem;color:var(--a);min-width:3.2rem}
+.tx{flex:1}
+.flags{margin:.2rem 0 0;padding:0;list-style:none}
+.flags li{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--a);
+ border-radius:9px;padding:.6rem .8rem;margin-bottom:.4rem;font-size:.92rem}
+.lv{display:grid;grid-template-columns:6.6rem 1fr;gap:.9rem;padding:.7rem .2rem;
+ border-bottom:1px solid var(--line);font-size:.95rem;align-items:baseline}
+.lv dt{font:600 .68rem/1.35 ui-monospace,Menlo,monospace;letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
+.lv dd{margin:0}
+.lv dd b{font-weight:700}
+.lv.hd dt,.lv.hd dd{font:600 .68rem/1.35 ui-monospace,Menlo,monospace;letter-spacing:.09em;
+ text-transform:uppercase;color:var(--soft)}
+img.chart{width:100%;height:auto;border-radius:13px;border:1px solid var(--line);background:#fff}
+.cap{font:600 .68rem/1.35 ui-monospace,Menlo,monospace;letter-spacing:.09em;text-transform:uppercase;
+ color:var(--soft);margin:.2rem .2rem .6rem}
+a.call{display:flex;justify-content:space-between;background:var(--card);border:1px solid var(--line);
+ border-radius:13px;padding:.85rem;margin-bottom:.45rem;text-decoration:none;color:inherit;font-weight:600}
+a.call em{font-style:normal;color:var(--a)}
+pre{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:.9rem;
+ font:12.5px/1.6 ui-monospace,Menlo,monospace;white-space:pre-wrap;overflow-x:auto}
+button.cp{width:100%;padding:.85rem;border:0;border-radius:13px;background:var(--a);color:#fff;
+ font:600 .95rem -apple-system,system-ui,sans-serif;margin-top:.5rem}
+button.rs{width:100%;padding:.8rem;border:1px solid var(--line);border-radius:13px;background:transparent;
+ color:var(--soft);font:600 .88rem -apple-system,system-ui,sans-serif;margin-top:1.6rem}
+[hidden]{display:none!important}
+</style>
+
+
+<header>
+  <h1>Lena &amp; Grant — Ricky + Rachel</h1>
+  <div class="sub">Sat 10/10 · The Beach Club, 201 Palisades Beach Rd, Santa Monica</div>
+  <div class="bar"><i id="pb"></i></div>
+</header>
+
+<nav class="tabs">
+  <button id="t1" aria-selected="true" onclick="tab(1)">Timeline</button>
+  <button id="t2" aria-selected="false" onclick="tab(2)">Info</button>
+</nav>
+
+<main>
+<div id="p1">  <h2>Pre-Ceremony — 1:00 start @ venue</h2>
+  <div class="row" data-i="1"><div class="bx"></div><div class="tm">1:00</div><div class="tx">Getting ready (groom in Boardroom)</div></div>
+  <div class="row n" data-i="2"><div class="bx"></div><div class="tx">Mic Grant (inside jacket), stays on until after mother/son dance</div></div>
+  <div class="row n" data-i="3"><div class="bx"></div><div class="tx">Groomsmen in their tuxes (Super 8)</div></div>
+  <div class="row" data-i="4"><div class="bx"></div><div class="tm">1:15</div><div class="tx">Bride arrives</div></div>
+  <div class="row n" data-i="5"><div class="bx"></div><div class="tx">Mic Lena</div></div>
+  <div class="row n" data-i="6"><div class="bx"></div><div class="tx">Staged getting ready (we're not there for the morning, so this is our getting ready)</div></div>
+  <div class="row" data-i="7"><div class="bx"></div><div class="tm">1:30</div><div class="tx">First look + romantics (Super 8)</div></div>
+  <div class="row n" data-i="8"><div class="bx"></div><div class="tx">Right after: first look with dad (Clay) + brother (Joe)</div></div>
+  <div class="row" data-i="9"><div class="bx"></div><div class="tm">2:00</div><div class="tx">Bridal party (playground + open beach)</div></div>
+  <div class="row n" data-i="10"><div class="bx"></div><div class="tx">Take Lena's mic off after bridal party photos</div></div>
+  <div class="row" data-i="11"><div class="bx"></div><div class="tm">2:30</div><div class="tx">Family photos (not necessary)</div></div>
+  <div class="row n" data-i="12"><div class="bx"></div><div class="tx">Flower girls + ring bearers in their little tuxes/dresses (Super 8)</div></div>
+  <div class="row" data-i="13"><div class="bx"></div><div class="tm">3:30</div><div class="tx">Ceremony details</div></div>
+  <div class="row n" data-i="14"><div class="bx"></div><div class="tx">Set up tripods + audio</div></div>
+  <div class="row" data-i="15"><div class="bx"></div><div class="tm">4:00</div><div class="tx">Guest arrival</div></div>
+  <div class="row n" data-i="16"><div class="bx"></div><div class="tx">IMPORTANT: love note wall, capture guests' reactions reading their notes</div></div>
+  <div class="row n" data-i="17"><div class="bx"></div><div class="tx">Mic Lena back on right before the ceremony</div></div>
+  <h2>Ceremony @ 4:45</h2>
+  <div class="row n" data-i="18"><div class="bx"></div><div class="tx">Grant is on the LEFT side</div></div>
+  <div class="row" data-i="19"><div class="bx"></div><div class="tm">4:45</div><div class="tx">Ceremony begins</div></div>
+  <div class="row n" data-i="20"><div class="bx"></div><div class="tx">First kiss + glass stomp + mazal tov (Super 8)</div></div>
+  <h2>Cocktail Hour @ 5:15</h2>
+  <div class="row n" data-i="21"><div class="bx"></div><div class="tx">Someone taking a shot at the bar (Super 8)</div></div>
+  <div class="row n" data-i="22"><div class="bx"></div><div class="tx">Love note wall again: guests going back up, reactions</div></div>
+  <div class="row" data-i="23"><div class="bx"></div><div class="tm">5:30</div><div class="tx">Couple enters cocktail hour</div></div>
+  <div class="row" data-i="24"><div class="bx"></div><div class="tm">5:50</div><div class="tx">Reception details</div></div>
+  <div class="row n" data-i="25"><div class="bx"></div><div class="tx">Rachel: set up wide tripod + mic father of the bride</div></div>
+  <h2>Reception @ 6:30</h2>
+  <div class="row n" data-i="26"><div class="bx"></div><div class="tx">First dance: couple is facing the bridal table (lift, dip + kiss all face it). Dad dance faces it too.</div></div>
+  <div class="row" data-i="27"><div class="bx"></div><div class="tm">6:30</div><div class="tx">Grand entrance + hora (Super 8) + first dance + parent dances + B&amp;G TY toast</div></div>
+  <div class="row n" data-i="28"><div class="bx"></div><div class="tx">Take Grant's mic after mother/son dance</div></div>
+  <div class="row n" data-i="29"><div class="bx"></div><div class="tx">Set up lights + tripods for speeches</div></div>
+  <div class="row" data-i="30"><div class="bx"></div><div class="tm">7:15</div><div class="tx">Speeches</div></div>
+  <div class="row" data-i="31"><div class="bx"></div><div class="tm">7:30</div><div class="tx">Vendor meal</div></div>
+  <div class="row" data-i="32"><div class="bx"></div><div class="tm">7:50</div><div class="tx">Cake cutting, horns playing (Super 8)</div></div>
+  <div class="row" data-i="33"><div class="bx"></div><div class="tm">7:55</div><div class="tx">Lena outfit change</div></div>
+  <div class="row" data-i="34"><div class="bx"></div><div class="tm">8:15</div><div class="tx">Couple re-enters</div></div>
+  <div class="row" data-i="35"><div class="bx"></div><div class="tm">9:15</div><div class="tx">Bouquet toss</div></div>
+  <div class="row" data-i="36"><div class="bx"></div><div class="tm">11:00</div><div class="tx">Sky deck: stay a little for transition shots</div></div>
+  <div class="row n" data-i="37"><div class="bx"></div><div class="tx">End @ ~11:00</div></div>
+  <button class="rs" onclick="if(confirm('Clear all ticks?')){localStorage.removeItem(K);location.reload()}">Reset ticks</button>
+</div>
+
+<div id="p2" hidden>
+  <h2>Contacts</h2>
+  <a class="call" href="tel:7144702075">Ricky<em>714-470-2075</em></a>
+  <a class="call" href="tel:7149149605">Christina — planner<em>714-914-9605</em></a>
+  <a class="call" href="tel:9495332341">Erin — photographer<em>949-533-2341</em></a>
+  <a class="call" href="tel:3109416404">Kenia — bustle<em>310-941-6404</em></a>
+  <h2>Standing notes</h2>
+  <ul class="flags"><li>NO phone calls at the club. Walkie-talkies only. Wear black, stay in the event areas, away from club members.</li><li>Lena: no unflattering angles, especially body. Soft, warm light, no harsh contrast.</li><li>Grant: nothing raunchy from his mic makes the film.</li><li>Speeches: get an audio line from one of Lena's parents.</li><li>Vibe: fun party, intimate + romantic, raw, quirky. Top 3: first look, vows, dancing. They'd rather have dancing + hugging friends than getting ready.</li><li>Takeaway they want: "Wow they love each other, what a fun beautiful event."</li></ul>
+  <h2>Family</h2>
+  <dl class="lv"><dt>Bride's side</dt><dd>Clay (dad), Annette (mom), Joe (brother), Ella + Liv (sisters), Grandma Beverly (Annette's mom)</dd></dl>
+  <dl class="lv"><dt>Groom's side</dt><dd>Paul (dad), Suzanne (mom), Nick (brother)</dd></dl>
+  <dl class="lv"><dt>Best man</dt><dd>Nick &mdash; groom's brother</dd></dl>
+  <dl class="lv"><dt>Flower girls</dt><dd>Sydney, Skylar</dd></dl>
+  <dl class="lv"><dt>Ring bearers</dt><dd>Ryan, Miles, Jack Jack</dd></dl>
+  <dl class="lv"><dt>Officiant</dt><dd>Cantor Nate</dd></dl>
+  <dl class="lv"><dt>Bustle helper</dt><dd>Kenia</dd></dl>
+  
+  <h2>Seating</h2>
+  <dl class="lv"><dt>Seating</dt><dd>No chart sent</dd></dl>
+</div>
+</main>
+
+<script>
+var K="lg-crew-v2";
+var done=JSON.parse(localStorage.getItem(K)||"{}");
+function paint(){
+  var rows=document.querySelectorAll(".row[data-i]"),n=0,t=rows.length;
+  rows.forEach(function(r){
+    var on=!!done[r.dataset.i];
+    r.classList.toggle("done",on);
+    r.querySelector(".bx").textContent=on?"\u2713":"";
+    if(on)n++;
+  });
+  document.getElementById("pb").style.width=(t?n/t*100:0)+"%";
+}
+document.addEventListener("click",function(e){
+  var r=e.target.closest(".row[data-i]");
+  if(!r)return;
+  done[r.dataset.i]=!done[r.dataset.i];
+  if(!done[r.dataset.i])delete done[r.dataset.i];
+  localStorage.setItem(K,JSON.stringify(done));paint();
+});
+function tab(n){
+  document.getElementById("p1").hidden=n!==1;
+  document.getElementById("p2").hidden=n!==2;
+  document.getElementById("t1").setAttribute("aria-selected",n===1);
+  document.getElementById("t2").setAttribute("aria-selected",n===2);
+  scrollTo(0,0);
+}
+function copyCT(b){
+  var t=document.getElementById("ct").textContent;
+  navigator.clipboard.writeText(t).then(function(){b.textContent="Copied";
+    setTimeout(function(){b.textContent="Copy creative team"},1600)});
+}
+paint();
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js");
+</script>
